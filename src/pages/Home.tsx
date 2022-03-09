@@ -20,6 +20,10 @@ export function Home() {
 
   function handleToggleTaskDone(id: number) {
     //TODO - toggle task done if exists
+    const index = tasks.findIndex(task => { return task.id === id });
+    const updatedTasks = tasks.map(task => ({ ...task }));
+    updatedTasks[index].done = !updatedTasks[index].done;
+    setTasks(updatedTasks);
   }
 
   function handleRemoveTask(id: number) {
